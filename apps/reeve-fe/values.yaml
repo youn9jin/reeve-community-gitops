@@ -1,0 +1,37 @@
+image:
+  repository: 417780655988.dkr.ecr.ap-northeast-2.amazonaws.com/reeve-fe
+  tag: "acec1b5"
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+service:
+  port: 3000
+
+probes:
+  startup:
+    path: /
+    periodSeconds: 2
+    timeoutSeconds: 2
+    failureThreshold: 15   # 30초 컷오프 — Express는 콜드스타트가 짧아서 BE(60초)보다 여유 있게 짧게 잡음
+  liveness:
+    path: /
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+  readiness:
+    path: /
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+
+config:
+  apiBaseUrl: "/api"

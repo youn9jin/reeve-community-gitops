@@ -1,0 +1,6 @@
+apiVersion: v2
+name: reeve-fe
+description: reeve-community Frontend (Node.js/Express) Helm chart
+type: application
+version: 0.1.0
+appVersion: "acec1b5"

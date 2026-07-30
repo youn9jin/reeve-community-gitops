@@ -1,0 +1,50 @@
+image:
+  repository: 417780655988.dkr.ecr.ap-northeast-2.amazonaws.com/reeve-be
+  tag: "a1b2c3d"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 400Mi
+  limits:
+    cpu: 500m
+    memory: 700Mi
+
+service:
+  port: 8080
+
+probes:
+  startup:
+    path: /api/actuator/health/liveness
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 12
+  liveness:
+    path: /api/actuator/health/liveness
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+  readiness:
+    path: /api/actuator/health/readiness
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+
+config:
+  springProfilesActive: "prod"
+  rdsEndpoint: "reeve-community-db.czwoa6mm0wln.ap-northeast-2.rds.amazonaws.com"
+  s3BucketName: "reeve-community-images-417780655988"
+  jwtAccessExpiration: "1800000"
+  jwtRefreshExpiration: "1209600000"
+
+externalSecret:
+  refreshInterval: 1h
+  secretName: reeve-be-secrets
+  dbPasswordKey: /reeve-community/db-password
+  jwtSecretKey: /reeve-community/jwt-secret
+
+secretStore:
+  region: ap-northeast-2
