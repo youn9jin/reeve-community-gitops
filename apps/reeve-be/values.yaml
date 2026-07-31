@@ -21,7 +21,7 @@ probes:
     path: /api/actuator/health/liveness
     periodSeconds: 5
     timeoutSeconds: 3
-    failureThreshold: 12
+    failureThreshold: 18
   liveness:
     path: /api/actuator/health/liveness
     periodSeconds: 10
