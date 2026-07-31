@@ -1,6 +1,6 @@
 image:
   repository: 417780655988.dkr.ecr.ap-northeast-2.amazonaws.com/reeve-be
-  tag: "a1b2c3d"
+  tag: "98f7e19"
   pullPolicy: IfNotPresent
 
 replicaCount: 2
