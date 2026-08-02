@@ -48,3 +48,8 @@ externalSecret:
 
 secretStore:
   region: ap-northeast-2
+
+rollout:
+  progressDeadlineSeconds: 180
+  minReadySeconds: 10
+  revisionHistoryLimit: 3

@@ -7,6 +7,9 @@ metadata:
     tier: frontend
 spec:
   replicas: {{ .Values.replicaCount }}
+  progressDeadlineSeconds: {{ .Values.rollout.progressDeadlineSeconds }}
+  minReadySeconds: {{ .Values.rollout.minReadySeconds }}
+  revisionHistoryLimit: {{ .Values.rollout.revisionHistoryLimit }}
   selector:
     matchLabels:
       app: community

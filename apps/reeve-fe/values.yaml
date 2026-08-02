@@ -35,3 +35,8 @@ probes:
 
 config:
   apiBaseUrl: "/api"
+
+rollout:
+  progressDeadlineSeconds: 80
+  minReadySeconds: 10
+  revisionHistoryLimit: 3
