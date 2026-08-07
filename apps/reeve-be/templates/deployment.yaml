@@ -47,6 +47,8 @@ spec:
             - configMapRef:
                 name: reeve-be-config
           env:
+            - name: JAVA_TOOL_OPTIONS
+              value: {{ .Values.jvm.opts | quote }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:

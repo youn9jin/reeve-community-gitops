@@ -3,6 +3,9 @@ image:
   tag: "58abd0a"
   pullPolicy: IfNotPresent
 
+jvm:
+  opts: "-XX:+UseG1GC -XX:MaxRAMPercentage=70 -XX:MaxMetaspaceSize=128m -XX:ThreadStackSize=1024k -XX:MaxDirectMemorySize=64m -XX:ReservedCodeCacheSize=96m"
+
 replicaCount: 2
 
 resources:
